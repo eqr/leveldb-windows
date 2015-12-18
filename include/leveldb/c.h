@@ -295,6 +295,11 @@ extern LEVELDB_API int leveldb_minor_version();
 
 extern LEVELDB_API int leveldb_benchmark(int argc, char** argv);
 
+typedef void(*leveldb_log_string_fn)(const char* message);
+extern LEVELDB_API leveldb_logger_t* leveldb_logger_create(leveldb_log_string_fn logger);
+extern LEVELDB_API void leveldb_logger_destroy(leveldb_logger_t* logger);
+
+
 #ifdef __cplusplus
 }  /* end extern "C" */
 #endif
